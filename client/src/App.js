@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-/*import { observer } from 'mobx-react';
-import appStore from './Store';
-*/
 import Table from './Table';
 import Controls from './Controls';
+import Store from './Store';
+import {inject, observer } from 'mobx-react';
 
-// This component has observer decorator
+
+// This component has observer decorato
+
+@inject('Store')
+@observer
 class App extends Component {
   render() {
     return (
       <div>
         <h1>Mobx Table</h1>
-        <Controls />
+        <Controls Store={Store}/>
         <Table />
       </div>
     );
